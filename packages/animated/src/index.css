@@ -1,0 +1,9 @@
+@layer base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --*: initial;
+}
+@import "./constants.css";
+@import "./animations.css";

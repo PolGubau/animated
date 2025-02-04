@@ -1,0 +1,80 @@
+@theme {
+  --animate-wiggle: wiggle 1s ease-out;
+  --animate-wiggle-fast: wiggle-fast 0.5s ease-out;
+  --animate-wiggle-slow: wiggle-slow 2s ease-out;
+
+  --animate-wiggle-x: wiggle-x 1s ease-out;
+  --animate-wiggle-y: wiggle-y 1s ease-out;
+  --animate-wiggle-z: wiggle-z 1s ease-out;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(
+      0deg
+    ); /* Se asegura que empiece y termine en el estado normal */
+  }
+  50% {
+    transform: rotate(
+      var(--small-rotation)
+    ); /* Movimiento de rotación usando la variable */
+  }
+}
+
+@keyframes wiggle-fast {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(
+      calc(2 * var(--small-rotation))
+    ); /* Movimiento rápido de rotación */
+  }
+}
+
+@keyframes wiggle-slow {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(
+      calc(0.5 * var(--small-rotation))
+    ); /* Movimiento suave de rotación */
+  }
+}
+
+@keyframes wiggle-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes wiggle-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes wiggle-z {
+  0%,
+  100% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  20% {
+    transform: rotate3d(1, 1, 1, var(--rotation));
+  }
+  70% {
+    transform: rotate3d(1, 1, 1, var(--rotation-negative));
+  }
+}

@@ -1,0 +1,624 @@
+/*! tailwindcss v4.0.3 | MIT License | https://tailwindcss.com */
+@layer base, components, utilities;
+@layer theme {
+  :root, :host {
+    --smaller-scale: 0.8;
+    --larger-scale: 1.2;
+    --pump-amount: 1.05;
+    --blur-amount: 8px;
+    --slide-amount: 20px;
+    --slide-amount-negative: calc(-1 * var(--slide-amount));
+    --rotation: 10deg;
+    --rotation-negative: calc(-1 * var(--rotation));
+    --small-rotation: 3deg;
+    --small-rotation-negative: calc(-1 * var(--small-rotation));
+    --shake-amount: 5px;
+    --shake-amount-negative: calc(-1 * var(--shake-amount));
+    --movement-distance: 10px;
+    --fade-scale: 0.95;
+    --animate-blur: from-blur 0.5s ease-in-out;
+    --animate-to-blur: from-blur 0.5s ease-in-out reverse;
+    --animate-blur-pulse: blur-pulse 1.5s ease-in-out infinite;
+    --animate-blur-flash: blur-flash 0.8s ease-in-out;
+    --animate-fade-in: fade-in 0.3s ease-out;
+    --animate-fade-out: fade-out 0.3s ease-in;
+    --animate-fade-in-down: fade-in-down 0.3s ease-out;
+    --animate-fade-out-up: fade-out-up 0.3s ease-in;
+    --animate-fade-in-up: fade-in-up 0.3s ease-out;
+    --animate-fade-out-down: fade-out-down 0.3s ease-in;
+    --animate-fade-in-left: fade-in-left 0.3s ease-out;
+    --animate-fade-out-right: fade-out-right 0.3s ease-in;
+    --animate-fade-in-right: fade-in-right 0.3s ease-out;
+    --animate-fade-out-left: fade-out-left 0.3s ease-in;
+    --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+    --animate-fade-out-scale: fade-out-scale 0.3s ease-in;
+    --animate-fade-in-rotate: fade-in-rotate 0.3s ease-out;
+    --animate-fade-out-rotate: fade-out-rotate 0.3s ease-in;
+    --animate-grow-complete: grow-complete 0.2s ease-in-out;
+    --animate-grow: grow 0.2s ease-in-out;
+    --animate-grow-x: grow-x 0.5s ease-in-out;
+    --animate-grow-y: grow-y 0.5s ease-in-out;
+    --animate-grow-out: grow-out 0.2s ease-in-out;
+    --animate-grow-out-x: grow-out-x 0.5s ease-in-out;
+    --animate-grow-out-y: grow-out-y 0.5s ease-in-out;
+    --animate-pump: pump 2s ease-in-out infinite;
+    --animate-shake: shake 0.5s ease-in-out;
+    --animate-shrink: shrink 0.2s ease-in-out;
+    --animate-shrink-out: shrink-out 0.2s ease-in-out;
+    --animate-shrink-x: shrink-x 0.2s ease-in-out;
+    --animate-shrink-y: shrink-y 0.2s ease-in-out;
+    --animate-slide-in-right: slide-in-right 0.3s ease-in-out;
+    --animate-slide-in-left: slide-in-left 0.3s ease-in-out;
+    --animate-slide-in-top: slide-in-top 0.3s ease-in-out;
+    --animate-slide-in-bottom: slide-in-bottom 0.3s ease-in-out;
+    --animate-slide-out-right: slide-out-right 0.3s ease-in-out;
+    --animate-slide-out-left: slide-out-left 0.3s ease-in-out;
+    --animate-slide-out-top: slide-out-top 0.3s ease-in-out;
+    --animate-slide-out-bottom: slide-out-bottom 0.3s ease-in-out;
+    --animate-wiggle: wiggle 1s ease-out;
+    --animate-wiggle-fast: wiggle-fast 0.5s ease-out;
+    --animate-wiggle-slow: wiggle-slow 2s ease-out;
+    --animate-wiggle-x: wiggle-x 1s ease-out;
+    --animate-wiggle-y: wiggle-y 1s ease-out;
+    --animate-wiggle-z: wiggle-z 1s ease-out;
+  }
+}
+@layer utilities {
+  .animate-blur {
+    animation: var(--animate-blur);
+  }
+  .animate-blur-flash {
+    animation: var(--animate-blur-flash);
+  }
+  .animate-blur-pulse {
+    animation: var(--animate-blur-pulse);
+  }
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+  .animate-fade-in-down {
+    animation: var(--animate-fade-in-down);
+  }
+  .animate-fade-in-left {
+    animation: var(--animate-fade-in-left);
+  }
+  .animate-fade-in-right {
+    animation: var(--animate-fade-in-right);
+  }
+  .animate-fade-in-rotate {
+    animation: var(--animate-fade-in-rotate);
+  }
+  .animate-fade-in-scale {
+    animation: var(--animate-fade-in-scale);
+  }
+  .animate-fade-in-up {
+    animation: var(--animate-fade-in-up);
+  }
+  .animate-fade-out {
+    animation: var(--animate-fade-out);
+  }
+  .animate-fade-out-down {
+    animation: var(--animate-fade-out-down);
+  }
+  .animate-fade-out-left {
+    animation: var(--animate-fade-out-left);
+  }
+  .animate-fade-out-right {
+    animation: var(--animate-fade-out-right);
+  }
+  .animate-fade-out-rotate {
+    animation: var(--animate-fade-out-rotate);
+  }
+  .animate-fade-out-scale {
+    animation: var(--animate-fade-out-scale);
+  }
+  .animate-fade-out-up {
+    animation: var(--animate-fade-out-up);
+  }
+  .animate-grow {
+    animation: var(--animate-grow);
+  }
+  .animate-grow-complete {
+    animation: var(--animate-grow-complete);
+  }
+  .animate-grow-out {
+    animation: var(--animate-grow-out);
+  }
+  .animate-grow-out-x {
+    animation: var(--animate-grow-out-x);
+  }
+  .animate-grow-out-y {
+    animation: var(--animate-grow-out-y);
+  }
+  .animate-grow-x {
+    animation: var(--animate-grow-x);
+  }
+  .animate-grow-y {
+    animation: var(--animate-grow-y);
+  }
+  .animate-pump {
+    animation: var(--animate-pump);
+  }
+  .animate-shake {
+    animation: var(--animate-shake);
+  }
+  .animate-shrink {
+    animation: var(--animate-shrink);
+  }
+  .animate-shrink-out {
+    animation: var(--animate-shrink-out);
+  }
+  .animate-shrink-x {
+    animation: var(--animate-shrink-x);
+  }
+  .animate-shrink-y {
+    animation: var(--animate-shrink-y);
+  }
+  .animate-slide-in-bottom {
+    animation: var(--animate-slide-in-bottom);
+  }
+  .animate-slide-in-left {
+    animation: var(--animate-slide-in-left);
+  }
+  .animate-slide-in-right {
+    animation: var(--animate-slide-in-right);
+  }
+  .animate-slide-in-top {
+    animation: var(--animate-slide-in-top);
+  }
+  .animate-slide-out-bottom {
+    animation: var(--animate-slide-out-bottom);
+  }
+  .animate-slide-out-left {
+    animation: var(--animate-slide-out-left);
+  }
+  .animate-slide-out-right {
+    animation: var(--animate-slide-out-right);
+  }
+  .animate-slide-out-top {
+    animation: var(--animate-slide-out-top);
+  }
+  .animate-to-blur {
+    animation: var(--animate-to-blur);
+  }
+  .animate-wiggle {
+    animation: var(--animate-wiggle);
+  }
+  .animate-wiggle-fast {
+    animation: var(--animate-wiggle-fast);
+  }
+  .animate-wiggle-slow {
+    animation: var(--animate-wiggle-slow);
+  }
+  .animate-wiggle-x {
+    animation: var(--animate-wiggle-x);
+  }
+  .animate-wiggle-y {
+    animation: var(--animate-wiggle-y);
+  }
+  .animate-wiggle-z {
+    animation: var(--animate-wiggle-z);
+  }
+}
+@keyframes from-blur {
+  from {
+    filter: blur(var(--blur-amount));
+  }
+  to {
+    filter: blur(0);
+  }
+}
+@keyframes blur-pulse {
+  0%, 100% {
+    filter: blur(var(--blur-amount));
+  }
+  50% {
+    filter: blur(0);
+  }
+}
+@keyframes blur-flash {
+  0% {
+    filter: blur(var(--blur-amount));
+    opacity: 0;
+  }
+  50% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(var(--blur-amount));
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(var(--movement-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-out-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--movement-distance));
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--movement-distance)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-out-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--movement-distance)));
+  }
+}
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(var(--movement-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--movement-distance));
+  }
+}
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--movement-distance)));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--movement-distance)));
+  }
+}
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(var(--fade-scale));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fade-out-scale {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(var(--fade-scale));
+  }
+}
+@keyframes fade-in-rotate {
+  from {
+    opacity: 0;
+    transform: rotate(var(--rotation));
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+@keyframes fade-out-rotate {
+  from {
+    opacity: 1;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(var(--rotation));
+  }
+}
+@keyframes grow-complete {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes grow {
+  from {
+    transform: scale(var(--smaller-scale));
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes grow-y {
+  from {
+    transform: scale(var(--smaller-scale));
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scale(var(--smaller-scale));
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes grow-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(var(--smaller-scale));
+  }
+}
+@keyframes grow-out-x {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scale(var(--smaller-scale));
+  }
+}
+@keyframes grow-out-y {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scale(var(--smaller-scale));
+  }
+}
+@keyframes pump {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(var(--pump-amount));
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(var(--slide-amount-negative));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(var(--slide-amount));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(var(--slide-amount-negative));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(var(--slide-amount));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--slide-amount-negative));
+  }
+}
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--slide-amount));
+  }
+}
+@keyframes slide-out-top {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--slide-amount-negative));
+  }
+}
+@keyframes slide-out-bottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--slide-amount));
+  }
+}
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate( 0deg );
+  }
+  50% {
+    transform: rotate( var(--small-rotation) );
+  }
+}
+@keyframes wiggle-fast {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate( calc(2 * var(--small-rotation)) );
+  }
+}
+@keyframes wiggle-slow {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate( calc(0.5 * var(--small-rotation)) );
+  }
+}
+@keyframes wiggle-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+@keyframes wiggle-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+@keyframes wiggle-z {
+  0%, 100% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  20% {
+    transform: rotate3d(1, 1, 1, var(--rotation));
+  }
+  70% {
+    transform: rotate3d(1, 1, 1, var(--rotation-negative));
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(var(--shake-amount-negative));
+  }
+  50% {
+    transform: translateX(var(--shake-amount));
+  }
+  75% {
+    transform: translateX(var(--shake-amount-negative));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(var(--larger-scale));
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes shrink-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(var(--smaller-scale));
+    opacity: 0;
+  }
+}
+@keyframes shrink-x {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(var(--larger-scale));
+  }
+}
+@keyframes shrink-y {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(var(--larger-scale));
+  }
+}

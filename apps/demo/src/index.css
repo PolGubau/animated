@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "@polgubau/animated";
+
+@font-face {
+  font-family: "Gabarito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/src/assets/fonts/Gabarito.ttf") format("truetype");
+}
+
+:root {
+  font-family: "Gabarito", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  @apply antialiased bg-gray-100 text-gray-900;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --animate-grow-x-in-complete: grow-x-in-complete 0.3s ease-out;
+  --animate-grow-x-out-complete: grow-x-out-complete 0.3s ease-out;
+  @keyframes grow-x-in-complete {
+    from {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    to {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+  @keyframes grow-x-out-complete {
+    from {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    to {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+  }
+}

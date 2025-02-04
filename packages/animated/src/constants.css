@@ -1,0 +1,25 @@
+@theme {
+  --smaller-scale: 0.8;
+
+  --larger-scale: 1.2;
+
+  --pump-amount: 1.05;
+
+  --blur-amount: 8px;
+
+  --slide-amount: 20px;
+  --slide-amount-negative: calc(-1 * var(--slide-amount));
+
+  --rotation: 10deg;
+  --rotation-negative: calc(-1 * var(--rotation));
+
+  --small-rotation: 3deg;
+  --small-rotation-negative: calc(-1 * var(--small-rotation));
+
+  --shake-amount: 5px;
+  --shake-amount-negative: calc(-1 * var(--shake-amount));
+
+  --movement-distance: 10px;
+
+  --fade-scale: 0.95;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@polgubau/animated",
+  "version": "1.0.2",
+  "main": "dist/index.css",
+  "style": "dist/index.css",
+  "exports": {
+    ".": "./dist/index.css",
+    "./summary": "./dist/summary.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "build-watch": "node build-watch.mjs",
+    "generate": "npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css",
+    "generate-watch": "pnpm generate --watch",
+    "setup": "pnpm generate && pnpm build",
+    "watch": "concurrently \"pnpm run generate-watch\" \"pnpm build-watch\" \"node gather-variables.mjs --watch\"",
+    "gather-variables": "node gather-variables.mjs",
+    "gather-variables-watch": "node gather-variables.mjs --watch",
+    "pack": "npm pack --dry-run",
+    "publish": "npm publish --access public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.3",
+    "esbuild": "^0.24.2",
+    "tailwindcss": "^4.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

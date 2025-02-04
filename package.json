@@ -1,0 +1,23 @@
+{
+  "name": "@polgubau/animated",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm run /^dev:.*/",
+    "dev:lib": "cd packages/animated && pnpm watch ",
+    "dev:app": "cd ../../apps/demo && pnpm dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolGubau/animated.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PolGubau/animated/issues"
+  },
+  "homepage": "https://github.com/PolGubau/animated#readme",
+  "description": ""
+}

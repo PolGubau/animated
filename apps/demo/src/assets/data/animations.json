@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "title": "Blur",
+    "description": "Animations related to blur.",
+    "animations": [
+      "animate-blur",
+      "animate-blur-flash",
+      "animate-blur-pulse",
+      "animate-to-blur"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Fade",
+    "description": "Animations related to fade.",
+    "animations": [
+      "animate-fade-in",
+      "animate-fade-in-down",
+      "animate-fade-in-left",
+      "animate-fade-in-right",
+      "animate-fade-in-rotate",
+      "animate-fade-in-scale",
+      "animate-fade-in-up",
+      "animate-fade-out",
+      "animate-fade-out-down",
+      "animate-fade-out-left",
+      "animate-fade-out-right",
+      "animate-fade-out-rotate",
+      "animate-fade-out-scale",
+      "animate-fade-out-up"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Grow",
+    "description": "Animations related to grow.",
+    "animations": [
+      "animate-grow",
+      "animate-grow-complete",
+      "animate-grow-out",
+      "animate-grow-out-x",
+      "animate-grow-out-y",
+      "animate-grow-x",
+      "animate-grow-y"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Pump",
+    "description": "Animations related to pump.",
+    "animations": [
+      "animate-pump"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Shake",
+    "description": "Animations related to shake.",
+    "animations": [
+      "animate-shake"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Shrink",
+    "description": "Animations related to shrink.",
+    "animations": [
+      "animate-shrink",
+      "animate-shrink-out",
+      "animate-shrink-x",
+      "animate-shrink-y"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Slide",
+    "description": "Animations related to slide.",
+    "animations": [
+      "animate-slide-in-bottom",
+      "animate-slide-in-left",
+      "animate-slide-in-right",
+      "animate-slide-in-top",
+      "animate-slide-out-bottom",
+      "animate-slide-out-left",
+      "animate-slide-out-right",
+      "animate-slide-out-top"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Wiggle",
+    "description": "Animations related to wiggle.",
+    "animations": [
+      "animate-wiggle",
+      "animate-wiggle-fast",
+      "animate-wiggle-slow",
+      "animate-wiggle-x",
+      "animate-wiggle-y",
+      "animate-wiggle-z"
+    ]
+  }
+]

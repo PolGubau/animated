@@ -1,0 +1,40 @@
+@theme {
+  --animate-blur: from-blur 0.5s ease-in-out;
+  --animate-to-blur: from-blur 0.5s ease-in-out reverse;
+
+  --animate-blur-pulse: blur-pulse 1.5s ease-in-out infinite;
+  --animate-blur-flash: blur-flash 0.8s ease-in-out;
+}
+
+@keyframes from-blur {
+  from {
+    filter: blur(var(--blur-amount));
+  }
+  to {
+    filter: blur(0);
+  }
+}
+@keyframes blur-pulse {
+  0%,
+  100% {
+    filter: blur(var(--blur-amount));
+  }
+  50% {
+    filter: blur(0);
+  }
+}
+
+@keyframes blur-flash {
+  0% {
+    filter: blur(var(--blur-amount));
+    opacity: 0;
+  }
+  50% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(var(--blur-amount));
+    opacity: 0;
+  }
+}
