@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "pnpm run /^dev:.*/",
     "dev:lib": "cd packages/animated && pnpm watch ",
-    "dev:app": "cd ../../apps/demo && pnpm dev"
+    "dev:app": "cd apps/demo && pnpm dev"
   },
   "repository": {
     "type": "git",

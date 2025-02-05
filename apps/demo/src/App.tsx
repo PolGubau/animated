@@ -1,50 +1,49 @@
-import { useEffect, useState } from "react";
-
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { useCallback, useState } from "react";
 import animations from "./assets/data/animations.json";
-import AnimationCard from "./components/AnimationCard";
+import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
 
-type AnimationCategory = {
+type Category = {
 	id: number;
 	title: string;
 	description: string;
 	animations: string[];
 };
 
+const getCategory = (id: string): Category => {
+	return animations.find((category) => category.title === id) || animations[0];
+};
+
 function App() {
-	const [selectedAnimation, setSelectedAnimation] = useState<AnimationCategory>(
-		animations[0],
-	);
-	const [displayedAnimation, setDisplayedAnimation] = useState(animations[0]);
+	const pathname = window.location.pathname;
+	const selectedAnimationName = pathname.replace("/", "");
+	const selectedCategory = getCategory(selectedAnimationName);
+
+	const [displayedAnimation, setDisplayedAnimation] =
+		useState<Category>(selectedCategory);
 	const [isExiting, setIsExiting] = useState(false);
 
+	const handleChangeCategory = useCallback((newCategory: Category) => {
+		setIsExiting(true);
+		window.history.pushState({}, "", newCategory.title);
+
+		setTimeout(() => {
+			setDisplayedAnimation(newCategory);
+			setIsExiting(false);
+		}, 600);
+	}, []);
+
 	const currentIdx = animations.findIndex(
-		(section) => section === selectedAnimation,
+		(section) => section.id === selectedCategory.id,
 	);
 	const nextIndex = (currentIdx + 1) % animations.length;
 	const prevIndex = (currentIdx - 1 + animations.length) % animations.length;
 
-	useEffect(() => {
-		if (isExiting) {
-			const timeout = setTimeout(() => {
-				setDisplayedAnimation(selectedAnimation);
-				setIsExiting(false);
-			}, 600);
-			return () => clearTimeout(timeout);
-		}
-	}, [isExiting, selectedAnimation]);
-
-	const changeAnimation = (newTitle: AnimationCategory) => {
-		if (newTitle !== selectedAnimation) {
-			setIsExiting(true);
-			setSelectedAnimation(newTitle);
-		}
-	};
-
 	return (
 		<main className="grid md:grid-cols-2 xl:grid-cols-[1fr_3fr] overflow-hidden md:h-screen">
 			<aside className="md:h-screen w-full flex flex-col p-8 bg-slate-200 overflow-hidden">
-				<header className="">
+				<header>
 					<h1 className="flex gap-1 items-center">
 						<a
 							href="https://www.polgubau.com"
@@ -75,40 +74,18 @@ function App() {
 					/>
 					<nav className="flex items-center gap-3 mt-6">
 						<button
-							className="outline focus:outline-4 rounded-full text-4xl p-2 flex items-center justify-center cursor-pointer bg-slate-300/5 hover:bg-slate-300/80 transition-all "
-							onClick={() => changeAnimation(animations[prevIndex])}
+							className="outline focus:outline-4 rounded-full text-4xl p-2 flex items-center justify-center cursor-pointer bg-slate-300/5 hover:bg-slate-300/80 transition-all"
+							onClick={() => handleChangeCategory(animations[prevIndex])}
 							type="button"
 						>
-							<svg
-								width="24"
-								height="24"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<title>Previous</title>
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<path d="M5 12l14 0" />
-								<path d="M5 12l6 6" />
-								<path d="M5 12l6 -6" />
-							</svg>
+							<IconArrowLeft />
 						</button>
 						<button
 							className="outline focus:outline-4 rounded-full text-4xl p-2 flex items-center justify-center cursor-pointer bg-slate-300/5 hover:bg-slate-300/80 transition-all"
-							onClick={() => changeAnimation(animations[nextIndex])}
+							onClick={() => handleChangeCategory(animations[nextIndex])}
 							type="button"
 						>
-							<svg
-								width="24"
-								height="24"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<title>Next</title>
-								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-								<path d="M5 12l14 0" />
-								<path d="M13 18l6 -6" />
-								<path d="M13 6l6 6" />
-							</svg>
+							<IconArrowRight />
 						</button>
 					</nav>
 				</section>
@@ -119,20 +96,16 @@ function App() {
 							<li key={animation.id}>
 								<button
 									type="button"
-									onClick={() => changeAnimation(animation)}
+									onClick={() => handleChangeCategory(animation)}
 									className={`text-2xl font-semibold text-slate-900 outline-0 focus-visible:outline-1 rounded-md overflow-hidden relative flex items-start justify-start text-start
-                    ${selectedAnimation === animation ? "underline" : ""}
-                    `}
+                    ${displayedAnimation.id === animation.id ? "underline" : ""}
+                  `}
 								>
 									<div
-										className={`absolute inset-0 bg-yellow-400 transition-all left-0 top-0 text-transparent  ${
-											selectedAnimation === animation
-												? "animate-grow-x-in-complete"
-												: "animate-grow-x-out-complete"
-										}`}
-										style={{
-											animationFillMode: "both",
-										}}
+										className={`absolute inset-0 bg-yellow-400 transition-all left-0 top-0 text-transparent
+                      ${displayedAnimation.id === animation.id ? "animate-grow-x-in-complete" : "animate-grow-x-out-complete"}
+                    `}
+										style={{ animationFillMode: "both" }}
 									>
 										{animation.title}
 									</div>
@@ -144,24 +117,12 @@ function App() {
 				</section>
 			</aside>
 
-			<main className="p-10 overflow-y-auto">
-				<ul className="mt-6 flex flex-col gap-4">
-					{displayedAnimation.animations.map((animation, idx) => {
-						return (
-							<div
-								key={animation}
-								className={`${isExiting ? "animate-fade-out" : "animate-fade-in"}`}
-								style={{
-									animationFillMode: "both",
-									animationDelay: `${idx * 0.1}s`,
-								}}
-							>
-								<AnimationCard animation={animation} />
-							</div>
-						);
-					})}
-				</ul>
-			</main>
+			<section className="p-10 overflow-y-auto">
+				<CardList
+					animations={displayedAnimation.animations}
+					isExiting={isExiting}
+				/>
+			</section>
 		</main>
 	);
 }
