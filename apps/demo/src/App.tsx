@@ -1,5 +1,5 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import animations from "./assets/data/animations.json";
 import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
@@ -16,9 +16,14 @@ const getCategory = (id: string): Category => {
 };
 
 function App() {
-	const pathname = window.location.pathname;
-	const selectedAnimationName = pathname.replace("/", "");
-	const selectedCategory = getCategory(selectedAnimationName);
+	const [selectedAnimationName, setSelectedAnimationName] = useState(
+		() => window.location.pathname.replace("/", "") || animations[0].title,
+	);
+
+	const selectedCategory = useMemo(
+		() => getCategory(selectedAnimationName),
+		[selectedAnimationName],
+	);
 
 	const [displayedAnimation, setDisplayedAnimation] =
 		useState<Category>(selectedCategory);
@@ -27,15 +32,20 @@ function App() {
 	const handleChangeCategory = useCallback((newCategory: Category) => {
 		setIsExiting(true);
 		window.history.pushState({}, "", newCategory.title);
-
 		setTimeout(() => {
 			setDisplayedAnimation(newCategory);
+			setSelectedAnimationName(newCategory.title);
 			setIsExiting(false);
 		}, 600);
 	}, []);
 
-	const currentIdx = animations.findIndex(
-		(section) => section.id === selectedCategory.id,
+	useEffect(() => {
+		document.title = `Animated - ${selectedCategory.title}`;
+	}, [selectedCategory]);
+
+	const currentIdx = useMemo(
+		() => animations.findIndex((section) => section.id === selectedCategory.id),
+		[selectedCategory.id],
 	);
 	const nextIndex = (currentIdx + 1) % animations.length;
 	const prevIndex = (currentIdx - 1 + animations.length) % animations.length;
@@ -44,18 +54,19 @@ function App() {
 		<main className="grid md:grid-cols-2 xl:grid-cols-[1fr_3fr] overflow-hidden md:h-screen">
 			<aside className="md:h-screen w-full flex flex-col p-8 bg-slate-200 overflow-hidden">
 				<header>
-					<h1 className="flex gap-1 items-center">
+					<h1 className="flex gap-1 items-center text-lg font-semibold">
 						<a
 							href="https://www.polgubau.com"
-							className="opacity-70"
+							className="opacity-70 hover:underline"
 							target="_blank"
 							rel="noreferrer"
 						>
 							@polgubau/
 						</a>
-						<span className="font-semibold">Animated</span>
+						<span className="text-xl">Animated</span>
 					</h1>
 				</header>
+
 				<section className="flex gap-1 flex-col h-full md:pt-72">
 					<Heading
 						text={displayedAnimation.title}
@@ -68,12 +79,14 @@ function App() {
 						text={displayedAnimation.description}
 						isExiting={isExiting}
 						delay={0.01}
-						className="pl-2"
+						className="pl-2 text-lg text-gray-700"
 						enterAnimation="animate-slide-in-top"
 						exitAnimation="animate-slide-out-top"
 					/>
 					<nav className="flex items-center gap-3 mt-6">
 						<button
+							aria-label="Previous category"
+							title="Previous category"
 							className="outline focus:outline-4 rounded-full text-4xl p-2 flex items-center justify-center cursor-pointer bg-slate-300/5 hover:bg-slate-300/80 transition-all"
 							onClick={() => handleChangeCategory(animations[prevIndex])}
 							type="button"
@@ -81,6 +94,8 @@ function App() {
 							<IconArrowLeft />
 						</button>
 						<button
+							aria-label="Next category"
+							title="Next category"
 							className="outline focus:outline-4 rounded-full text-4xl p-2 flex items-center justify-center cursor-pointer bg-slate-300/5 hover:bg-slate-300/80 transition-all"
 							onClick={() => handleChangeCategory(animations[nextIndex])}
 							type="button"
@@ -98,13 +113,11 @@ function App() {
 									type="button"
 									onClick={() => handleChangeCategory(animation)}
 									className={`text-2xl font-semibold text-slate-900 outline-0 focus-visible:outline-1 rounded-md overflow-hidden relative flex items-start justify-start text-start
-                    ${displayedAnimation.id === animation.id ? "underline" : ""}
-                  `}
+                    ${displayedAnimation.id === animation.id ? "underline" : ""}`}
 								>
 									<div
 										className={`absolute inset-0 bg-yellow-400 transition-all left-0 top-0 text-transparent
-                      ${displayedAnimation.id === animation.id ? "animate-grow-x-in-complete" : "animate-grow-x-out-complete"}
-                    `}
+                      ${displayedAnimation.id === animation.id ? "animate-grow-x-in-complete" : "animate-grow-x-out-complete"}`}
 										style={{ animationFillMode: "both" }}
 									>
 										{animation.title}
