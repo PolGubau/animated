@@ -1,4 +1,4 @@
-import { IconReload } from "@tabler/icons-react";
+import { IconCheck, IconReload } from "@tabler/icons-react";
 import { useState } from "react";
 
 const AnimationCard = ({
@@ -37,7 +37,7 @@ const AnimationCard = ({
 			</div>
 
 			<div className="flex flex-col gap-2">
-				{animation}
+				<header className="flex items-center gap-2">{animation}</header>
 				<div className="flex gap-2 items-center text-[0.7em]">
 					<label htmlFor="speed">Speed:</label>
 					<input
