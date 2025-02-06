@@ -14,16 +14,16 @@ const AnimationCard = ({
 	return (
 		<li
 			key={animation}
-			className="grid grid-cols-[auto_1fr] gap-4 text-2xl font-semibold text-slate-900 p-3 bg-slate-200 rounded-xl"
+			className="grid grid-cols-[auto_1fr] gap-4 text-2xl font-semibold p-3 bg-gray-200 dark:bg-gray-800 dar rounded-xl"
 		>
 			<div
-				className="h-20 w-20 relative grid place-items-center bg-slate-50 rounded-md aspect-square"
+				className="h-20 w-20 relative grid place-items-center bg-gray-50 dark:bg-gray-900 rounded-md aspect-square"
 				key={animation}
 			>
 				<button
 					onClick={growKey}
 					type="button"
-					className="absolute -top-1 -right-1 bg-slate-300/20 rounded-full"
+					className="absolute -top-1 -right-1 bg-gray-300/20 rounded-full"
 				>
 					<TbReload size={16} />
 				</button>
@@ -36,9 +36,9 @@ const AnimationCard = ({
 				</span>
 			</div>
 
-			<div className="flex flex-col gap-2">
+			<div className="flex flex-col gap-2 ">
 				<header className="flex items-center gap-2">{animation}</header>
-				<div className="flex gap-2 items-center text-[0.7em]">
+				<div className="flex gap-2 items-center text-[0.7em] text-gray-900 dark:text-gray-100/80">
 					<label htmlFor="speed">Speed:</label>
 					<input
 						type="range"

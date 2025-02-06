@@ -61,7 +61,7 @@
   }
   to {
     opacity: 0;
-    transform: translateX(var(--slide-amount-negative));
+    transform: translateX(var(--slide-amount));
   }
 }
 
@@ -72,7 +72,7 @@
   }
   to {
     opacity: 0;
-    transform: translateX(var(--slide-amount));
+    transform: translateX(var(--slide-amount-negative));
   }
 }
 
