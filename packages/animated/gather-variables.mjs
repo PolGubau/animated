@@ -1,9 +1,16 @@
 import fs from "node:fs";
 import path, { resolve } from "node:path";
 
-const __dirname = resolve();
-const animationsDir = path.join(__dirname, "src/animations");
-const outputFile = path.join(__dirname, "dist/summary.json");
+const root = resolve();
+const animationsDir = path.join(root, "src/animations");
+const outputFile = path.join(root, "dist/summary.json");
+
+const distExists = fs.existsSync(outputFile);
+
+if (distExists) {
+	fs.unlinkSync(outputFile);
+	console.info("🟡 Summary file deleted");
+}
 
 // Asegurar que la carpeta `dist` existe
 if (!fs.existsSync("dist")) {
@@ -46,7 +53,7 @@ const gatherVariables = () => {
 	fs.writeFileSync(outputFile, JSON.stringify(sortedVariables, null, 2));
 
 	console.log(
-		`✅ summary.json actualizado: ${sortedVariables.length} variables.`,
+		`🟢 summary.json created with ${sortedVariables.length} animations.`,
 	);
 };
 

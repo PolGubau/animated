@@ -1,8 +1,11 @@
 {
-  "name": "animated",
+  "name": "@polgubau/animated",
   "version": "1.0.2",
   "main": "dist/index.css",
   "style": "dist/index.css",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": "./dist/index.css",
     "./summary": "./dist/summary.json"
@@ -15,7 +18,7 @@
     "build-watch": "node build-watch.mjs",
     "generate": "npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css",
     "generate-watch": "pnpm generate --watch",
-    "setup": "pnpm generate && pnpm build",
+    "ready": "pnpm generate && pnpm build && pnpm gather-variables",
     "watch": "concurrently \"pnpm run generate-watch\" \"pnpm build-watch\" \"node gather-variables.mjs --watch\"",
     "gather-variables": "node gather-variables.mjs",
     "gather-variables-watch": "node gather-variables.mjs --watch",

@@ -1,11 +1,12 @@
 {
-  "name": "@polgubau/animated",
+  "name": "animated",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run /^dev:.*/",
     "dev:lib": "cd packages/animated && pnpm watch ",
-    "dev:app": "cd apps/demo && pnpm dev"
+    "dev:app": "cd apps/demo && pnpm dev",
+    "blib": "cd packages/animated && pnpm ready"
   },
   "repository": {
     "type": "git",

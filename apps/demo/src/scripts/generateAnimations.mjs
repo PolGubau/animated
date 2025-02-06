@@ -1,5 +1,9 @@
 import fs from "node:fs";
 import animations from "@polgubau/animated/summary" with { type: "json" };
+if (!animations) {
+	console.error("❌ Error fetching animations");
+	process.exit(1);
+}
 
 // const URL = "https://pol-ui.polgubau.com/css-variables.json";
 const OUTPUT_PATH = "src/assets/data/animations.json";
