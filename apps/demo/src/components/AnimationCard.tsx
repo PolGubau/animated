@@ -1,4 +1,4 @@
-import { IconCheck, IconReload } from "@tabler/icons-react";
+import {  IconReload } from "@tabler/icons-react";
 import { useState } from "react";
 
 const AnimationCard = ({
