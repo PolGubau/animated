@@ -17,7 +17,7 @@ export const Heading = (props: HeadingProps) => {
 		exitAnimation = "animate-slide-out-top",
 	} = props;
 	return (
-		<p className={`w-full flex items-start overflow-hidden  ${className}`}>
+		<div className={`w-full flex items-start overflow-hidden  ${className}`}>
 			{text.split("").map((char, index) => (
 				<span
 					key={`${char}-${
@@ -35,6 +35,6 @@ export const Heading = (props: HeadingProps) => {
 					</div>
 				</span>
 			))}
-		</p>
+		</div>
 	);
 };
