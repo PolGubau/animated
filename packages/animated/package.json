@@ -1,6 +1,6 @@
 {
   "name": "@polgubau/animated",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.css",
   "style": "dist/index.css",
   "files": [
@@ -26,19 +26,19 @@
   "keywords": [
     "tailwindcss",
     "animations",
-    "polgubau",
-    "transition",
-    "css",
+    "tailwind4",
     "motion",
-    "tailwind4"
+    "css",
+    "transitions",
+    "polgubau",
+    "react",
+    "frontend"
   ],
   "author": "Pol Gubau Amores",
   "license": "ISC",
-  "description": "A collection of animations for Tailwind CSS 4 with just modern css",
+  "description": "A collection of modern CSS animations for Tailwind CSS 4, designed to enhance your frontend projects.",
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.3",
-    "esbuild": "^0.24.2",
-    "tailwindcss": "^4.0.3"
+    "esbuild": "^0.24.2"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
