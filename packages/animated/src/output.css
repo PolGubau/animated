@@ -64,11 +64,158 @@
   }
 }
 @layer utilities {
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .shrink {
     flex-shrink: 1;
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .animate-blur {
+    animation: var(--animate-blur);
+  }
+  .animate-blur-flash {
+    animation: var(--animate-blur-flash);
+  }
+  .animate-blur-pulse {
+    animation: var(--animate-blur-pulse);
+  }
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+  .animate-fade-in-down {
+    animation: var(--animate-fade-in-down);
+  }
+  .animate-fade-in-left {
+    animation: var(--animate-fade-in-left);
+  }
+  .animate-fade-in-right {
+    animation: var(--animate-fade-in-right);
+  }
+  .animate-fade-in-rotate {
+    animation: var(--animate-fade-in-rotate);
+  }
+  .animate-fade-in-scale {
+    animation: var(--animate-fade-in-scale);
+  }
+  .animate-fade-in-up {
+    animation: var(--animate-fade-in-up);
+  }
+  .animate-fade-out {
+    animation: var(--animate-fade-out);
+  }
+  .animate-fade-out-down {
+    animation: var(--animate-fade-out-down);
+  }
+  .animate-fade-out-left {
+    animation: var(--animate-fade-out-left);
+  }
+  .animate-fade-out-right {
+    animation: var(--animate-fade-out-right);
+  }
+  .animate-fade-out-rotate {
+    animation: var(--animate-fade-out-rotate);
+  }
+  .animate-fade-out-scale {
+    animation: var(--animate-fade-out-scale);
+  }
+  .animate-fade-out-up {
+    animation: var(--animate-fade-out-up);
+  }
+  .animate-grow {
+    animation: var(--animate-grow);
+  }
+  .animate-grow-complete {
+    animation: var(--animate-grow-complete);
+  }
+  .animate-grow-out {
+    animation: var(--animate-grow-out);
+  }
+  .animate-grow-out-x {
+    animation: var(--animate-grow-out-x);
+  }
+  .animate-grow-out-y {
+    animation: var(--animate-grow-out-y);
+  }
+  .animate-grow-x {
+    animation: var(--animate-grow-x);
+  }
+  .animate-grow-y {
+    animation: var(--animate-grow-y);
+  }
+  .animate-pump {
+    animation: var(--animate-pump);
+  }
+  .animate-shake {
+    animation: var(--animate-shake);
+  }
+  .animate-shrink {
+    animation: var(--animate-shrink);
+  }
+  .animate-shrink-out {
+    animation: var(--animate-shrink-out);
+  }
+  .animate-shrink-x {
+    animation: var(--animate-shrink-x);
+  }
+  .animate-shrink-y {
+    animation: var(--animate-shrink-y);
+  }
+  .animate-slide-in-bottom {
+    animation: var(--animate-slide-in-bottom);
+  }
+  .animate-slide-in-left {
+    animation: var(--animate-slide-in-left);
+  }
+  .animate-slide-in-right {
+    animation: var(--animate-slide-in-right);
+  }
+  .animate-slide-in-top {
+    animation: var(--animate-slide-in-top);
+  }
+  .animate-slide-out-bottom {
+    animation: var(--animate-slide-out-bottom);
+  }
+  .animate-slide-out-left {
+    animation: var(--animate-slide-out-left);
+  }
+  .animate-slide-out-right {
+    animation: var(--animate-slide-out-right);
+  }
+  .animate-slide-out-top {
+    animation: var(--animate-slide-out-top);
+  }
+  .animate-to-blur {
+    animation: var(--animate-to-blur);
+  }
+  .animate-wiggle {
+    animation: var(--animate-wiggle);
+  }
+  .animate-wiggle-fast {
+    animation: var(--animate-wiggle-fast);
+  }
+  .animate-wiggle-slow {
+    animation: var(--animate-wiggle-slow);
+  }
+  .animate-wiggle-x {
+    animation: var(--animate-wiggle-x);
+  }
+  .animate-wiggle-y {
+    animation: var(--animate-wiggle-y);
+  }
+  .animate-wiggle-z {
+    animation: var(--animate-wiggle-z);
+  }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
 }
 @keyframes from-blur {
@@ -492,4 +639,65 @@
   to {
     transform: scaleY(var(--larger-scale));
   }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
 }

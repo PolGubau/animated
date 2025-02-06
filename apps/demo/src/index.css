@@ -1,5 +1,5 @@
-@import "@polgubau/animated";
 @import "tailwindcss";
+@import "@polgubau/animated";
 
 @font-face {
   font-family: "Gabarito";
