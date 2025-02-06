@@ -7,7 +7,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prebuild": "pnpm --filter=@polgubau/animated build",
+    "prebuild": "pnpm --filter=@polgubau/animated setup",
     "get-animations": "node ./src/scripts/generateAnimations.mjs"
   },
   "dependencies": {
