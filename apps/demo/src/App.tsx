@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { TbArrowLeft, TbArrowRight } from "react-icons/tb";
 import animations from "./assets/data/animations.json";
 import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
-import TextPressure from "./components/TextPressure";
-import { TbArrowLeft, TbArrowRight } from "react-icons/tb";
 
 type Category = {
 	id: number;
@@ -77,16 +76,6 @@ function App() {
 						exitAnimation="animate-slide-out-top"
 					/>
 
-					<div style={{ position: "relative", height: "300px" }}>
-						<TextPressure
-							text={displayedAnimation.title}
-							width={true}
-							weight={true}
-							flex={true}
-							textColor="#000"
-							minFontSize={36}
-						/>
-					</div>
 					<Heading
 						text={displayedAnimation.description}
 						isExiting={isExiting}
@@ -129,7 +118,7 @@ function App() {
 								>
 									<div
 										className={`absolute inset-0 bg-yellow-400 transition-all left-0 top-0 text-transparent
-                      ${displayedAnimation.id === animation.id ? "animate-grow-x-in-complete" : "animate-grow-x-out-complete"}`}
+                      ${displayedAnimation.id === animation.id ? "animate-grow-x-in-left" : "animate-grow-x-out-left"}`}
 										style={{ animationFillMode: "both" }}
 									>
 										{animation.title}

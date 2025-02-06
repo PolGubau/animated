@@ -39,10 +39,19 @@
       "animate-grow",
       "animate-grow-complete",
       "animate-grow-out",
+      "animate-grow-out-complete",
       "animate-grow-out-x",
       "animate-grow-out-y",
       "animate-grow-x",
-      "animate-grow-y"
+      "animate-grow-x-in-left",
+      "animate-grow-x-in-right",
+      "animate-grow-x-out-left",
+      "animate-grow-x-out-right",
+      "animate-grow-y",
+      "animate-grow-y-in-bottom",
+      "animate-grow-y-in-top",
+      "animate-grow-y-out-bottom",
+      "animate-grow-y-out-top"
     ]
   },
   {
@@ -50,7 +59,14 @@
     "title": "Pump",
     "description": "Animations related to pump.",
     "animations": [
-      "animate-pump"
+      "animate-pump",
+      "animate-pump-bounce",
+      "animate-pump-fast",
+      "animate-pump-hard",
+      "animate-pump-slow",
+      "animate-pump-soft",
+      "animate-pump-x",
+      "animate-pump-y"
     ]
   },
   {
@@ -58,7 +74,9 @@
     "title": "Shake",
     "description": "Animations related to shake.",
     "animations": [
-      "animate-shake"
+      "animate-shake",
+      "animate-shake-x",
+      "animate-shake-y"
     ]
   },
   {
@@ -93,11 +111,8 @@
     "description": "Animations related to wiggle.",
     "animations": [
       "animate-wiggle",
-      "animate-wiggle-fast",
-      "animate-wiggle-slow",
-      "animate-wiggle-x",
-      "animate-wiggle-y",
-      "animate-wiggle-z"
+      "animate-wiggle-hard",
+      "animate-wiggle-soft"
     ]
   }
 ]

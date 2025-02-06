@@ -1,18 +1,73 @@
 @theme {
   --animate-pump: pump 2s ease-in-out infinite;
+  --animate-pump-soft: pump-soft 2s ease-in-out infinite;
+  --animate-pump-hard: pump-hard 2s ease-in-out infinite;
+  --animate-pump-fast: pump 1s ease-in-out infinite;
+  --animate-pump-slow: pump 3s ease-in-out infinite;
+  --animate-pump-x: pump-x 2s ease-in-out infinite;
+  --animate-pump-y: pump-y 2s ease-in-out infinite;
+  --animate-pump-bounce: pump-bounce 2s cubic-bezier(0.25, 0.8, 0.25, 1)
+    infinite;
 }
 
 @keyframes pump {
-  0% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(var(--pump-amount));
+    transform: scale(var(--pump-amount, 1.1));
     opacity: 0.8;
   }
+}
+
+@keyframes pump-soft {
+  0%,
   100% {
     transform: scale(1);
-    opacity: 1;
+  }
+  50% {
+    transform: scale(var(--pump-soft-amount, 1.05));
+  }
+}
+
+@keyframes pump-hard {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(var(--pump-hard-amount, 1.2));
+  }
+}
+
+@keyframes pump-x {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(var(--pump-x-amount, 1.1));
+  }
+}
+
+@keyframes pump-y {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(var(--pump-y-amount, 1.1));
+  }
+}
+
+@keyframes pump-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(var(--pump-bounce-amount, 1.15));
   }
 }

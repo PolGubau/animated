@@ -1,6 +1,6 @@
 import { context } from "esbuild";
 
-const entryPoints = ["src/output.css"];
+const entryPoints = ["src/index.css"];
 const outfile = "dist/index.css";
 
 (async () => {

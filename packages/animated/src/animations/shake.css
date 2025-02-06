@@ -1,21 +1,80 @@
 @theme {
-  --animate-shake: shake 0.5s ease-in-out;
+  --animate-shake: shake 2s ease-in-out;
+  --animate-shake-x: shake-x 0.5s ease-in-out;
+  --animate-shake-y: shake-y 0.5s ease-in-out;
+}
 
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(var(--shake-amount-negative));
-    }
-    50% {
-      transform: translateX(var(--shake-amount));
-    }
-    75% {
-      transform: translateX(var(--shake-amount-negative));
-    }
-    100% {
-      transform: translateX(0);
-    }
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translateX(var(--shake-amount-negative, -5px))
+      translateY(var(--shake-y-amount-negative, -5px));
+  }
+  20% {
+    transform: translateX(var(--shake-amount, 5px))
+      translateY(var(--shake-y-amount-negative, -5px));
+  }
+  30% {
+    transform: translateX(var(--shake-amount-negative, -5px))
+      translateY(var(--shake-y-amount, 5px));
+  }
+  40% {
+    transform: translateX(var(--shake-amount, 5px))
+      translateY(var(--shake-y-amount, 5px));
+  }
+  50% {
+    transform: translateX(var(--shake-amount-negative, -5px))
+      translateY(var(--shake-y-amount, 5px));
+  }
+  60% {
+    transform: translateX(var(--shake-amount, 5px))
+      translateY(var(--shake-y-amount-negative, -5px));
+  }
+  70% {
+    transform: translateX(var(--shake-amount-negative, -5px))
+      translateY(var(--shake-y-amount-negative, -5px));
+  }
+  80% {
+    transform: translateX(var(--shake-amount, 5px))
+      translateY(var(--shake-y-amount, 5px));
+  }
+  90% {
+    transform: translateX(var(--shake-amount-negative, -5px))
+      translateY(var(--shake-y-amount-negative, -5px));
+  }
+}
+
+@keyframes shake-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(var(--shake-amount-negative, -5px));
+  }
+  50% {
+    transform: translateX(var(--shake-amount, 5px));
+  }
+  75% {
+    transform: translateX(var(--shake-amount-negative, -5px));
+  }
+}
+
+@keyframes shake-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(var(--shake-amount-negative, -5px));
+  }
+  50% {
+    transform: translateY(var(--shake-amount, 5px));
+  }
+  75% {
+    transform: translateY(var(--shake-amount-negative, -5px));
   }
 }

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import { resolve } from "node:path";
 import { build } from "esbuild";
 
-const outputPath = resolve("./src/output.css");
+const outputPath = resolve("./src/index.css");
 const distPath = resolve("./dist/index.css");
 
 const distExists = fs.existsSync(distPath);

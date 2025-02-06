@@ -16,20 +16,25 @@
   "scripts": {
     "build": "node build.mjs",
     "build-watch": "node build-watch.mjs",
-    "generate": "npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css",
-    "generate-watch": "pnpm generate --watch",
-    "ready": "pnpm generate && pnpm build && pnpm gather-variables",
-    "watch": "concurrently \"pnpm run generate-watch\" \"pnpm build-watch\" \"node gather-variables.mjs --watch\"",
+    "ready": "pnpm build && pnpm gather-variables",
+    "watch": "concurrently \"pnpm build-watch\" \"node gather-variables.mjs --watch\"",
     "gather-variables": "node gather-variables.mjs",
     "gather-variables-watch": "node gather-variables.mjs --watch",
     "pack": "npm pack --dry-run",
     "publish": "npm publish --access public"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "tailwindcss",
+    "animations",
+    "polgubau",
+    "transition",
+    "css",
+    "motion",
+    "tailwind4"
+  ],
+  "author": "Pol Gubau Amores",
   "license": "ISC",
-  "type": "commonjs",
-  "description": "",
+  "description": "A collection of animations for Tailwind CSS 4 with just modern css",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.3",
     "esbuild": "^0.24.2",

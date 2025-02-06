@@ -3,7 +3,12 @@
 
   --larger-scale: 1.2;
 
-  --pump-amount: 1.05;
+  --pump-amount: 1.1;
+  --pump-soft-amount: 1.05;
+  --pump-hard-amount: 1.2;
+  --pump-x-amount: 1.1;
+  --pump-y-amount: 1.1;
+  --pump-bounce-amount: 1.15;
 
   --blur-amount: 8px;
 
@@ -13,11 +18,12 @@
   --rotation: 10deg;
   --rotation-negative: calc(-1 * var(--rotation));
 
-  --small-rotation: 3deg;
+  --small-rotation: calc(0.5 * var(--rotation));
   --small-rotation-negative: calc(-1 * var(--small-rotation));
 
   --shake-amount: 5px;
   --shake-amount-negative: calc(-1 * var(--shake-amount));
+ 
 
   --movement-distance: 10px;
 
