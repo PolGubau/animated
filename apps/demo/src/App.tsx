@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { TbArrowLeft, TbArrowRight } from "react-icons/tb";
+import { TbArrowLeft, TbArrowRight, TbReload } from "react-icons/tb";
 import animations from "./assets/data/animations.json";
 import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
@@ -11,19 +11,27 @@ type Category = {
 	animations: string[];
 };
 
-const getCategory = (id: string): Category => {
-	return animations.find((category) => category.title === id) || animations[0];
+const welcomeCategory: Category = {
+	id: 0,
+	title: "Animated",
+	description: "Easy and modern tailwind v4 animations",
+	animations: [],
+};
+
+const getCategoryByTitle = (title: Category["title"]): Category => {
+	return (
+		animations.find((category) => category.title === title) ?? welcomeCategory
+	);
 };
 
 function App() {
-	const [selectedAnimationName, setSelectedAnimationName] = useState(
-		() => window.location.pathname.replace("/", "") || animations[0].title,
+	const [selectedAnimationName, setSelectedAnimationName] = useState<string>(
+		() => window.location.pathname.replace("/", "") || "Animated",
 	);
 
-	const selectedCategory = useMemo(
-		() => getCategory(selectedAnimationName),
-		[selectedAnimationName],
-	);
+	const selectedCategory = useMemo(() => {
+		return getCategoryByTitle(selectedAnimationName);
+	}, [selectedAnimationName]);
 
 	const [displayedAnimation, setDisplayedAnimation] =
 		useState<Category>(selectedCategory);
@@ -50,9 +58,10 @@ function App() {
 	const nextIndex = (currentIdx + 1) % animations.length;
 	const prevIndex = (currentIdx - 1 + animations.length) % animations.length;
 
+	const [animatedKey, setAnimatedKey] = useState(0);
 	return (
-		<main className="grid md:grid-cols-2 xl:grid-cols-[1fr_3fr] overflow-hidden md:h-screen">
-			<aside className="md:h-screen w-full flex flex-col p-8 bg-slate-200 overflow-hidden">
+		<main className="grid md:grid-cols-[380px_1fr] xl:grid-cols-[450px_1fr] 2xl:grid-cols-[500px_1fr] md:h-screen">
+			<aside className="md:h-screen w-full flex flex-col p-8 bg-slate-200 ">
 				<header>
 					<h1 className="flex gap-1 items-center text-lg font-semibold">
 						<a
@@ -63,19 +72,26 @@ function App() {
 						>
 							@polgubau/
 						</a>
-						<span className="text-xl">Animated</span>
+						<button
+							type="button"
+							onClick={() => handleChangeCategory(welcomeCategory)}
+							className="font-bold"
+						>
+							Animated
+						</button>
 					</h1>
 				</header>
 
 				<section className="flex gap-1 flex-col h-full md:pt-72 ">
-					<Heading
-						text={displayedAnimation.title}
-						isExiting={isExiting}
-						className="text-9xl font-bold"
-						enterAnimation="animate-slide-in-top"
-						exitAnimation="animate-slide-out-top"
-					/>
-
+					<h1>
+						<Heading
+							text={displayedAnimation.title ?? "Animated"}
+							isExiting={isExiting}
+							className="text-6xl xl:text-8xl font-bold"
+							enterAnimation="animate-slide-in-top"
+							exitAnimation="animate-slide-out-top"
+						/>
+					</h1>
 					<Heading
 						text={displayedAnimation.description}
 						isExiting={isExiting}
@@ -132,10 +148,196 @@ function App() {
 			</aside>
 
 			<section className="p-10 overflow-y-auto">
-				<CardList
-					animations={displayedAnimation.animations}
-					isExiting={isExiting}
-				/>
+				{displayedAnimation.animations.length > 0 ? (
+					<CardList
+						animations={displayedAnimation.animations}
+						isExiting={isExiting}
+					/>
+				) : (
+					<section className="h-full grid grid-rows-[1fr_auto] gap-4 m-6 prose lg:prose-lg prose-pre:py-3 prose-pre:rounded-xl">
+						<article>
+							<h2>Easy collection of animations for your next project.</h2>
+							<strong>Thoughtfully designed for modern Tailwind CSS</strong>
+							<hr />
+							<p>
+								The library exports a set of <code>plane css animations</code>{" "}
+								ready to be used, the new version (4) of Tailwind CSS provides
+								the power of the custom theme and css variables to customize the
+								animations.
+							</p>
+							<h2>Installation</h2>
+							<pre>
+								<code className="language-bash">
+									npm install @polgubau/animated
+								</code>
+							</pre>
+							<small>
+								You can use yarn if you prefer, the library is available in npm
+							</small>
+							{/*  */}
+							<h2>I'm using Tailwind</h2>
+							<p>Just import the library in your main css file:</p>
+							<pre>
+								<code className="language-bash">
+									{`/* index.css */
+@import "tailwindcss";
+@import "@polgubau/animated";
+`}
+								</code>
+							</pre>
+							<blockquote>
+								This library uses Tailwind v4, if you use previous versions the
+								animations will still work but you will need to provide the
+								classes
+							</blockquote>
+
+							<h4>Usage</h4>
+							<p>
+								Really, that's it! Now you can use all animations in your files
+							</p>
+							<ul>
+								<li className="grid gap-2 items-center grid-cols-[1fr_auto] w-full">
+									<pre className="m-0!">
+										<code>
+											{`<div className="animate-slide-in-top">Hello there!</div>`}
+										</code>
+									</pre>
+									<button
+										type="button"
+										onClick={() => setAnimatedKey(animatedKey + 1)}
+										className=" relative grid place-items-center outline rounded-xl h-full px-4 cursor-pointer"
+									>
+										<div className="absolute -top-2 -right-2 bg-slate-300 p-1 rounded-full">
+											<TbReload size={16} />
+										</div>
+										<span className="animate-slide-in-top" key={animatedKey}>
+											Hello there!
+										</span>
+									</button>
+								</li>
+								<li className="grid gap-2 items-center grid-cols-[1fr_auto] w-full">
+									<pre className="m-0!">
+										<code>
+											{`<div className="animate-fade-in-rotate">Hello there!</div>`}
+										</code>
+									</pre>
+									<button
+										type="button"
+										onClick={() => setAnimatedKey(animatedKey + 1)}
+										className=" relative grid place-items-center outline rounded-xl h-full px-4 cursor-pointer"
+									>
+										<div className="absolute -top-2 -right-2 bg-slate-300 p-1 rounded-full">
+											<TbReload size={16} />
+										</div>
+										<span className="animate-fade-in-rotate" key={animatedKey}>
+											Hello there!
+										</span>
+									</button>
+								</li>
+								<li className="grid gap-2 items-center grid-cols-[1fr_auto] w-full">
+									<pre className="m-0!">
+										<code>
+											{`<div className="animate-pump">Hello there!</div>`}
+										</code>
+									</pre>
+									<button
+										type="button"
+										onClick={() => setAnimatedKey(animatedKey + 1)}
+										className=" relative grid place-items-center outline rounded-xl h-full px-4 cursor-pointer"
+									>
+										<div className="absolute -top-2 -right-2 bg-slate-300 p-1 rounded-full">
+											<TbReload size={16} />
+										</div>
+										<span className="animate-pump" key={animatedKey}>
+											Hello there!
+										</span>
+									</button>
+								</li>
+							</ul>
+							<hr />
+
+							<h3>Customize your animations</h3>
+							<p>
+								Using normal CSS variables you can also change default values of
+								the animations
+							</p>
+							<p>The predefined values are:</p>
+							<pre>
+								<code>
+									{`--smaller-scale: 0.8;
+--larger-scale: 1.2;
+--pump-amount: 1.1;
+--pump-soft-amount: 1.05;
+--pump-hard-amount: 1.2;
+--pump-x-amount: 1.1;
+--pump-y-amount: 1.1;
+--pump-bounce-amount: 1.15;
+--blur-amount: 8px;
+--slide-amount: 20px;
+--slide-amount-negative: calc(-1 * var(--slide-amount));
+--rotation: 10deg;
+--rotation-negative: calc(-1 * var(--rotation));
+--small-rotation: calc(0.5 * var(--rotation));
+--small-rotation-negative: calc(-1 * var(--small-rotation));
+--shake-amount: 5px;
+--shake-amount-negative: calc(-1 * var(--shake-amount));
+--movement-distance: 10px;
+--fade-scale: 0.95;
+`}
+								</code>
+							</pre>
+							<p>
+								Just override the values in your main css file under the library
+								import
+							</p>
+							<pre>
+								<code>
+									{`/* index.css */
+@import "tailwindcss";
+@import "@polgubau/animated";
+
+:root {
+	--slide-amount: 40px;
+}
+`}
+								</code>
+							</pre>
+							<small>
+								Now all slide animations will slide 40px instead of the default
+								20px
+							</small>
+
+							<h3>Usage without Tailwind</h3>
+							<pre>
+								<code>
+									{`import "@polgubau/animated";`}
+									{`<div class="animate-slide-in-top">I'm animated!</div>`}
+								</code>
+							</pre>
+						</article>
+
+						<footer className="h-min items-center text-sm text-gray-700">
+							Made proudly{" "}
+							<a
+								href="https://github.com/PolGubau/animated"
+								target="_blank"
+								rel="noreferrer"
+								className="underline"
+							>
+								Open Source
+							</a>{" "}
+							and with love by{" "}
+							<a
+								href="https://www.polgubau.com"
+								target="_blank"
+								rel="noreferrer"
+								className="underline"
+							>
+								Pol Gubau Amores
+							</a>
+						</footer>
+					</section>
+				)}
 			</section>
 		</main>
 	);
