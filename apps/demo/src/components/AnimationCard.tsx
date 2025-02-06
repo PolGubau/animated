@@ -1,5 +1,5 @@
-import { IconReload } from "@tabler/icons-react";
 import { useState } from "react";
+import { TbReload } from "react-icons/tb";
 
 const AnimationCard = ({
 	animation,
@@ -25,7 +25,7 @@ const AnimationCard = ({
 					type="button"
 					className="absolute -top-1 -right-1 bg-slate-300/20 rounded-full"
 				>
-					<IconReload size={16} />
+					<TbReload size={16} />
 				</button>
 				<span
 					className={`${animation} `}

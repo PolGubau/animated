@@ -1,9 +1,9 @@
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import animations from "./assets/data/animations.json";
 import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
 import TextPressure from "./components/TextPressure";
+import { TbArrowLeft, TbArrowRight } from "react-icons/tb";
 
 type Category = {
 	id: number;
@@ -79,15 +79,11 @@ function App() {
 
 					<div style={{ position: "relative", height: "300px" }}>
 						<TextPressure
-							text="Hello!"
-							flex={true}
-							alpha={false}
-							stroke={false}
+							text={displayedAnimation.title}
 							width={true}
 							weight={true}
-							italic={true}
-							textColor="#ffffff"
-							strokeColor="#ff0000"
+							flex={true}
+							textColor="#000"
 							minFontSize={36}
 						/>
 					</div>
@@ -107,7 +103,7 @@ function App() {
 							onClick={() => handleChangeCategory(animations[prevIndex])}
 							type="button"
 						>
-							<IconArrowLeft />
+							<TbArrowLeft />
 						</button>
 						<button
 							aria-label="Next category"
@@ -116,7 +112,7 @@ function App() {
 							onClick={() => handleChangeCategory(animations[nextIndex])}
 							type="button"
 						>
-							<IconArrowRight />
+							<TbArrowRight />
 						</button>
 					</nav>
 				</section>
