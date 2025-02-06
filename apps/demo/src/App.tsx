@@ -98,7 +98,7 @@ function App() {
 						text={displayedAnimation.description}
 						isExiting={isExiting}
 						delay={0.01}
-						className="pl-2 text-lg text-gray-700"
+						className="pl-2 text-lg opacity-70"
 						enterAnimation="animate-slide-in-top"
 						exitAnimation="animate-slide-out-top"
 					/>

@@ -2,38 +2,36 @@ import { TbReload } from "react-icons/tb";
 import tailwindIntellisenseImage from "../assets/media/Intellisense.png";
 import { useState } from "react";
 
-export const Docs = ({
-	isExiting,
-}: {
-	isExiting: boolean;
-}) => {
+export const Docs = ({ isExiting }: { isExiting: boolean }) => {
 	const [animatedKey, setAnimatedKey] = useState(0);
+
 	return (
 		<section className="h-full m-6 prose lg:prose-lg prose-pre:py-3 prose-pre:rounded-xl dark:prose-invert max-w-2xl! prose-img:rounded-xl">
 			<article
-				style={{
-					animationFillMode: "both",
-				}}
+				style={{ animationFillMode: "both" }}
 				className={`${!isExiting ? "animate-blur" : "animate-slide-out-left"}`}
 			>
-				<h2>Easy collection of animations for your next project.</h2>
-				<strong>Thoughtfully designed for modern Tailwind CSS</strong>
+				<h2>Easy Animations for Your Next Project 🚀</h2>
+				<strong>Thoughtfully designed for modern Tailwind CSS ✨</strong>
 				<hr />
 				<p>
-					The library exports a set of <code>plane css animations</code> ready
-					to be used, the new version (4) of Tailwind CSS provides the power of
-					the custom theme and css variables to customize the animations.
+					This library exports a set of <code>pure CSS animations</code> ready
+					to use. The new version (v4) of Tailwind CSS leverages the power of
+					custom themes and CSS variables to customize the animations to your
+					liking.
 				</p>
-				<h2>Installation</h2>
+
+				<h2>Installation 🔧</h2>
 				<pre>
 					<code className="language-bash">npm install @polgubau/animated</code>
 				</pre>
 				<small>
-					You can use yarn if you prefer, the library is available in npm
+					You can use yarn if you prefer; the library is available on npm as
+					well.
 				</small>
-				{/*  */}
-				<h2>I'm using Tailwind</h2>
-				<p>Just import the library in your main css file:</p>
+
+				<h2>I'm Using Tailwind 🎨</h2>
+				<p>Simply import the library in your main CSS file:</p>
 				<pre>
 					<code className="language-bash">
 						{`/* index.css */
@@ -43,12 +41,13 @@ export const Docs = ({
 					</code>
 				</pre>
 				<blockquote>
-					This library uses Tailwind v4, if you use previous versions the
-					animations will still work but you will need to provide the classes
+					This library uses Tailwind v4. If you're using older versions, the
+					animations will still work, but you'll need to provide the classes
+					manually.
 				</blockquote>
 
-				<h4>Usage</h4>
-				<p>Really, that's it! Now you can use all animations in your files</p>
+				<h4>Usage ⚡️</h4>
+				<p>That's it! Now you can use all the animations in your files.</p>
 				<ul>
 					<li className="grid gap-2 items-center grid-cols-[1fr_auto] w-full">
 						<pre className="m-0!">
@@ -57,7 +56,7 @@ export const Docs = ({
 						<button
 							type="button"
 							onClick={() => setAnimatedKey(animatedKey + 1)}
-							className=" relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer"
+							className="relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer"
 						>
 							<div className="absolute -top-2 -right-2 bg-gray-300 dark:bg-gray-800 p-1 rounded-full">
 								<TbReload size={16} />
@@ -69,14 +68,12 @@ export const Docs = ({
 					</li>
 					<li className="grid gap-2 items-center grid-cols-[1fr_auto] w-full">
 						<pre className="m-0!">
-							<code>
-								{`<div className="animate-fade-in-rotate">Hello there!</div>`}
-							</code>
+							<code>{`<div className="animate-fade-in-rotate">Hello there!</div>`}</code>
 						</pre>
 						<button
 							type="button"
 							onClick={() => setAnimatedKey(animatedKey + 1)}
-							className=" relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer"
+							className="relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer"
 						>
 							<div className="absolute -top-2 -right-2 bg-gray-300 dark:bg-gray-800 p-1 rounded-full">
 								<TbReload size={16} />
@@ -90,17 +87,17 @@ export const Docs = ({
 						<pre className="m-0!">
 							<code>{`<div className="animate-pump">Hello there!</div>`}</code>
 						</pre>
-						<div className=" relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer">
+						<div className="relative grid place-items-center ring rounded-xl h-full px-4 cursor-pointer">
 							<span className="animate-pump">Hello there!</span>
 						</div>
 					</li>
 				</ul>
 				<hr />
 
-				<h3>Customize your animations</h3>
+				<h3>Customize Your Animations 🎨</h3>
 				<p>
-					Using normal CSS variables you can also change default values of the
-					animations
+					Using regular CSS variables, you can change the default values of the
+					animations to fit your design.
 				</p>
 				<p>The predefined values are:</p>
 				<pre>
@@ -128,8 +125,8 @@ export const Docs = ({
 					</code>
 				</pre>
 				<p>
-					Just override the values in your main css file under the library
-					import
+					Simply override these values in your main CSS file under the library
+					import to personalize your animations.
 				</p>
 				<pre>
 					<code>
@@ -138,21 +135,20 @@ export const Docs = ({
 @import "@polgubau/animated";
 
 :root {
-	--slide-amount: 40px;
+  --slide-amount: 40px;
 }
 `}
 					</code>
 				</pre>
-
 				<small>
-					Now all slide animations will slide 40px instead of the default 20px
-					:)
+					Now all slide animations will slide 40px instead of the default 20px!
+					😎
 				</small>
 
-				<h3>How can I know the available animations?</h3>
+				<h3>How Can I See the Available Animations? 🔍</h3>
 				<p>
-					You can just type <code>animate-</code> and you will see all available
-					animations:
+					You can simply type <code>animate-</code> and you'll see all available
+					animations in your editor.
 				</p>
 				<div className="relative">
 					<figure>
@@ -164,8 +160,8 @@ export const Docs = ({
 							/>
 						</div>
 						<figcaption>
-							This will work automatically if you have your tailwind extension
-							installed
+							This will work automatically if you have your Tailwind extension
+							installed in your IDE.
 						</figcaption>
 					</figure>
 					<img
@@ -174,8 +170,9 @@ export const Docs = ({
 						alt="Tailwind intellisense highlighting the available animations"
 					/>
 				</div>
-				<h4>But I want to access them dynamically</h4>
-				<p>The library exports an array of all animations in json format in:</p>
+
+				<h4>But I Want to Access Them Dynamically 💡</h4>
+				<p>The library exports an array of all animations in JSON format:</p>
 				<pre>
 					<code>
 						{`import animations from "@polgubau/animated/summary";
@@ -183,18 +180,19 @@ export const Docs = ({
   "animate-blur",
   "animate-blur-flash",
   "animate-blur-pulse",
-	... /*`}
+	... */
+`}
 					</code>
 				</pre>
 				<p>
-					And you can use it as you wish, TIP: this can be useful for creating a
-					UI component dynamically animated with a prop
+					You can use this array however you like. TIP: This is useful for
+					creating dynamically animated UI components based on props. 🌟
 				</p>
 
-				<h2>I'm not using Tailwind</h2>
+				<h2>I'm Not Using Tailwind 🚫</h2>
 				<p>
-					<strong>@polgubau/animated</strong> is totally compatible with any CSS
-					framework or vanilla CSS, just import the library in your main css
+					<strong>@polgubau/animated</strong> is fully compatible with any CSS
+					framework or vanilla CSS. Just import the library in your main CSS
 					file:
 				</p>
 				<pre>
@@ -202,8 +200,8 @@ export const Docs = ({
 import "@polgubau/animated";`}</code>
 				</pre>
 				<p>
-					You have now access to all keyframe animations, keep in mind then that
-					you'll need to create the classes in your way
+					You'll now have access to all keyframe animations, but remember you'll
+					need to create the classes manually.
 				</p>
 				<pre>
 					<code>
@@ -214,11 +212,12 @@ import "@polgubau/animated";`}</code>
 					</code>
 				</pre>
 				<hr />
-				<h2>Explore the animations</h2>
+
+				<h2>Explore the Animations 🌟</h2>
 				<p>
-					Now that you know how to use the library, you can explore the
-					animations, use the sidebar to navigate through the different
-					categories :)
+					Now that you know how to use the library, dive into the animations!
+					Use the sidebar to explore different categories and see them in
+					action. Enjoy! 🎉
 				</p>
 			</article>
 			<div className="h-[33vh]" />
