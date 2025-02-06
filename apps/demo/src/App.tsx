@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import animations from "./assets/data/animations.json";
 import CardList from "./components/CardList";
 import { Heading } from "./components/Heading";
+import TextPressure from "./components/TextPressure";
 
 type Category = {
 	id: number;
@@ -40,7 +41,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		document.title = `Animated - ${selectedCategory.title}`;
+		document.title = `Animated - ${selectedCategory.title} | Pol Gubau`;
 	}, [selectedCategory]);
 
 	const currentIdx = useMemo(
@@ -67,7 +68,7 @@ function App() {
 					</h1>
 				</header>
 
-				<section className="flex gap-1 flex-col h-full md:pt-72">
+				<section className="flex gap-1 flex-col h-full md:pt-72 ">
 					<Heading
 						text={displayedAnimation.title}
 						isExiting={isExiting}
@@ -75,6 +76,21 @@ function App() {
 						enterAnimation="animate-slide-in-top"
 						exitAnimation="animate-slide-out-top"
 					/>
+
+					<div style={{ position: "relative", height: "300px" }}>
+						<TextPressure
+							text="Hello!"
+							flex={true}
+							alpha={false}
+							stroke={false}
+							width={true}
+							weight={true}
+							italic={true}
+							textColor="#ffffff"
+							strokeColor="#ff0000"
+							minFontSize={36}
+						/>
+					</div>
 					<Heading
 						text={displayedAnimation.description}
 						isExiting={isExiting}

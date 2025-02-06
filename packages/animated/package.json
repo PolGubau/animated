@@ -1,5 +1,5 @@
 {
-  "name": "@polgubau/animated",
+  "name": "animated",
   "version": "1.0.2",
   "main": "dist/index.css",
   "style": "dist/index.css",

@@ -30,9 +30,7 @@ export const Heading = (props: HeadingProps) => {
 						animationFillMode: "both",
 					}}
 				>
-					<div className="hover:opacity-80 transition-opacity duration-200">
-						{char === " " ? "\u00A0" : char}
-					</div>
+					{char === " " ? "\u00A0" : char}
 				</span>
 			))}
 		</div>
