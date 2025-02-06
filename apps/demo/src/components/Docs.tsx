@@ -154,16 +154,26 @@ export const Docs = ({
 					You can just type <code>animate-</code> and you will see all available
 					animations:
 				</p>
-				<figure>
+				<div className="relative">
+					<figure>
+						<div className="p-0 m-0 h-[290px] bg-grey-300 dark:bg-gray-800 rounded-xl overflow-hidden relative z-10">
+							<img
+								src={tailwindIntellisenseImage}
+								className="h-[290px] mt-0!"
+								alt="Tailwind intellisense highlighting the available animations"
+							/>
+						</div>
+						<figcaption>
+							This will work automatically if you have your tailwind extension
+							installed
+						</figcaption>
+					</figure>
 					<img
 						src={tailwindIntellisenseImage}
+						className="h-[290px] scale-y-115 scale-x-105 not-prose absolute top-0 opacity-30 blur-lg"
 						alt="Tailwind intellisense highlighting the available animations"
 					/>
-					<figcaption>
-						This will work automatically if you have your tailwind extension
-						installed
-					</figcaption>
-				</figure>
+				</div>
 				<h4>But I want to access them dynamically</h4>
 				<p>The library exports an array of all animations in json format in:</p>
 				<pre>
