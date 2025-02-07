@@ -35,7 +35,7 @@
     "frontend"
   ],
   "author": "Pol Gubau Amores",
-  "license": "ISC",
+  "license": "MIT",
   "description": "A collection of modern CSS animations for Tailwind CSS 4, designed to enhance your frontend projects.",
   "dependencies": {
     "esbuild": "^0.24.2"
