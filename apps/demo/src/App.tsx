@@ -62,8 +62,8 @@ function App() {
 	const prevIndex = (currentIdx - 1 + animations.length) % animations.length;
 
 	return (
-		<main className="grid md:grid-cols-[380px_1fr] xl:grid-cols-[450px_1fr] 2xl:grid-cols-[500px_1fr] md:h-screen">
-			<aside className="md:h-screen w-full flex flex-col p-8 bg-gray-200 dark:bg-gray-950">
+		<main className="grid lg:grid-cols-[380px_1fr] xl:grid-cols-[450px_1fr] 2xl:grid-cols-[500px_1fr] lg:h-screen">
+			<aside className="lg:h-screen w-full flex flex-col p-8 bg-gray-200 dark:bg-gray-950">
 				<header>
 					<h1 className="flex gap-1 items-center text-lg font-semibold">
 						<a
@@ -84,7 +84,7 @@ function App() {
 					</h1>
 				</header>
 
-				<section className="flex gap-1 flex-col h-full md:pt-72 ">
+				<section className="flex gap-1 flex-col h-full 2xl:pt-[20vh] ">
 					<h1>
 						<Heading
 							text={displayedAnimation.title ?? "Animated"}
@@ -125,13 +125,16 @@ function App() {
 				</section>
 
 				<section className="flex flex-col gap-6">
-					<ul className="mt-6">
+					<ul
+						className="mt-6 flex xl:flex-col flex-wrap
+						gap-2 xl:gap-0"
+					>
 						{animations.map((animation) => (
 							<li key={animation.id}>
 								<button
 									type="button"
 									onClick={() => handleChangeCategory(animation)}
-									className={`text-2xl font-semibold  outline-0 focus-visible:outline-1 rounded-md overflow-hidden relative flex items-start justify-start text-start
+									className={`text-2xl font-semibold outline-0 focus-visible:outline-1 rounded-md lg:overflow-hidden relative flex items-start justify-start text-start cursor-pointer
                     ${displayedAnimation.id === animation.id ? "underline" : ""}`}
 								>
 									<div
@@ -145,29 +148,29 @@ function App() {
 								</button>
 							</li>
 						))}
-						<li className="pt-4">
-							<button
-								type="button"
-								onClick={() => handleChangeCategory(welcomeCategory)}
-								className={`text-xl opacity-90 font-semibold  outline-0 focus-visible:outline-1 rounded-md overflow-hidden relative flex items-start justify-start text-start
-										${displayedAnimation.id === welcomeCategory.id ? "underline" : ""}`}
-							>
-								<div
-									className={`absolute inset-0 bg-yellow-400 dark:bg-yellow-900 transition-all left-0 top-0 text-transparent
-											${displayedAnimation.id === welcomeCategory.id ? "animate-grow-x-in-left" : "animate-grow-x-out-left"}`}
-									style={{ animationFillMode: "both" }}
-								>
-									{welcomeCategory.title}
-								</div>
-								<span className="relative">Docs</span>
-							</button>
-						</li>
 					</ul>
+					<div className="pt-4">
+						<button
+							type="button"
+							onClick={() => handleChangeCategory(welcomeCategory)}
+							className={`text-xl opacity-90 font-semibold cursor-pointer outline-0 focus-visible:outline-1 rounded-md overflow-hidden relative flex items-start justify-start text-start
+										${displayedAnimation.id === welcomeCategory.id ? "underline" : ""}`}
+						>
+							<div
+								className={`absolute inset-0 bg-yellow-400 dark:bg-yellow-900 transition-all left-0 top-0 text-transparent
+											${displayedAnimation.id === welcomeCategory.id ? "animate-grow-x-in-left" : "animate-grow-x-out-left"}`}
+								style={{ animationFillMode: "both" }}
+							>
+								{welcomeCategory.title}
+							</div>
+							<span className="relative">Docs</span>
+						</button>
+					</div>
 					<Footer />
 				</section>
 			</aside>
 
-			<section className="p-10 overflow-y-auto">
+			<section className="p-10 lg:overflow-y-auto">
 				{displayedAnimation.animations.length > 0 ? (
 					<CardList
 						animations={displayedAnimation.animations}
