@@ -1,6 +1,6 @@
 {
   "name": "@polgubau/animated",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.css",
   "style": "dist/index.css",
   "files": [
