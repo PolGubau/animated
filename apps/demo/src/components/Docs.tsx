@@ -121,6 +121,10 @@ export const Docs = ({ isExiting }: { isExiting: boolean }) => {
 --shake-amount-negative: calc(-1 * var(--shake-amount));
 --movement-distance: 10px;
 --fade-scale: 0.95;
+--rolled-degree: 360deg;
+--rolled-degree-negative: calc(-1 * var(--rolled-degree));
+--rolled-distance: 100%;
+--rolled-distance-negative: calc(-1 * var(--rolled-distance));
 `}
 					</code>
 				</pre>
