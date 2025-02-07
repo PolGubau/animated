@@ -17,8 +17,10 @@ const categories = [
 	"Blur",
 	"Shake",
 	"Pump",
+	"Roll",
+	"Flip",
 	"Other",
-];
+].sort();
 const getCategory = (animation) => {
 	const category = categories.find((category) =>
 		animation.toLowerCase().includes(category.toLowerCase()),

@@ -33,6 +33,20 @@
   },
   {
     "id": 3,
+    "title": "Flip",
+    "description": "Animations related to flip.",
+    "animations": [
+      "animate-flip-flash-x",
+      "animate-flip-flash-y",
+      "animate-flip-pulse",
+      "animate-flip-x",
+      "animate-flip-y",
+      "animate-to-flip-x",
+      "animate-to-flip-y"
+    ]
+  },
+  {
+    "id": 4,
     "title": "Grow",
     "description": "Animations related to grow.",
     "animations": [
@@ -55,7 +69,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Pump",
     "description": "Animations related to pump.",
     "animations": [
@@ -70,7 +84,20 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
+    "title": "Roll",
+    "description": "Animations related to roll.",
+    "animations": [
+      "animate-roll-flash",
+      "animate-roll-left",
+      "animate-roll-pulse",
+      "animate-roll-right",
+      "animate-to-roll-left",
+      "animate-to-roll-right"
+    ]
+  },
+  {
+    "id": 7,
     "title": "Shake",
     "description": "Animations related to shake.",
     "animations": [
@@ -80,7 +107,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "Shrink",
     "description": "Animations related to shrink.",
     "animations": [
@@ -91,7 +118,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Slide",
     "description": "Animations related to slide.",
     "animations": [
@@ -106,7 +133,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 10,
     "title": "Wiggle",
     "description": "Animations related to wiggle.",
     "animations": [
