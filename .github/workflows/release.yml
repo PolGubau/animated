@@ -1,16 +1,25 @@
 on:
   push:
-    branches: main
+    branches:
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/animated
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v3
         with:
           node-version: "20"
-      - run: npm ci
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@polgubau"
+
+      - run: npm install
+
       - uses: JS-DevTools/npm-publish@v3
         id: publish
         with:
