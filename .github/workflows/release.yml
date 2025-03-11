@@ -19,12 +19,13 @@ jobs:
           scope: "@polgubau"
 
       - run: npm install
-
-      # - uses: JS-DevTools/npm-publish@v3
-      #   with:
-      #     token: ${{ secrets.NPM_TOKEN }}
       
-      - run: npm publish --access public
+      - run: |
+          if npm view @polgubau/animated@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
+            echo "La versión ya está publicada. Saliendo..."
+            exit 0
+          fi
+          npm publish --access public
         id: publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
