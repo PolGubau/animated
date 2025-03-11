@@ -7,13 +7,12 @@
     "dist"
   ],
   "exports": {
-    "import": "./dist/index.css",
-    "require": "./dist/index.css",
-    "default": "./dist/index.css",
+    ".": {
+      "style": "./dist/index.css",
+      "default": "./dist/index.css"
+    },
+    "./styles": "./dist/index.css",
     "./summary": "./dist/summary.json"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "scripts": {
     "postinstall": "echo \"✅ @polgubau/animated installed!\"",
