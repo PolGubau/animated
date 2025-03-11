@@ -20,10 +20,14 @@ jobs:
 
       - run: npm install
 
-      - uses: JS-DevTools/npm-publish@v3
+      # - uses: JS-DevTools/npm-publish@v3
+      #   with:
+      #     token: ${{ secrets.NPM_TOKEN }}
+      
+      - run: npm publish --access public
         id: publish
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
       - if: ${{ steps.publish.outputs.type }}
         run: echo "Version changed!"
