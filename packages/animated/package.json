@@ -1,19 +1,22 @@
 {
   "name": "@polgubau/animated",
-  "version": "1.0.7",
-  "main": "dist/index.css",
+  "version": "1.0.8",
   "style": "dist/index.css",
+  "type": "module",
   "files": [
     "dist"
   ],
   "exports": {
-    ".": "./dist/index.css",
+    "import": "./dist/index.css",
+    "require": "./dist/index.css",
+    "default": "./dist/index.css",
     "./summary": "./dist/summary.json"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "postinstall": "echo \"✅ @polgubau/animated installed!\"",
     "build": "node build.mjs",
     "build-watch": "node build-watch.mjs",
     "ready": "pnpm build && pnpm gather-variables",
