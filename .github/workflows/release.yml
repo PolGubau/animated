@@ -19,6 +19,7 @@ jobs:
           scope: "@polgubau"
 
       - run: npm install
+      - run: npm ready
       
       - run: |
           if npm view @polgubau/animated@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
