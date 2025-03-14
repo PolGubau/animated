@@ -1,5 +1,5 @@
 {
-  "name": "@polgubau/animated",
+  "name": "@polgubau/utils",
   "publishConfig": {
     "access": "public"
   },
@@ -7,21 +7,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run /^dev:.*/",
-    "dev:lib": "cd packages/animated && pnpm watch",
+    "dev:lib": "cd packages/utils && pnpm watch",
     "dev:app": "cd apps/demo && pnpm dev",
-    "blib": "cd packages/animated && pnpm ready"
+    "blib": "cd packages/utils && pnpm ready"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PolGubau/animated.git"
+    "url": "git+https://github.com/PolGubau/utils.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/PolGubau/animated/issues"
+    "url": "https://github.com/PolGubau/utils/issues"
   },
-  "homepage": "https://github.com/PolGubau/animated#readme",
+  "homepage": "https://github.com/PolGubau/utils#readme",
   "description": ""
 }
